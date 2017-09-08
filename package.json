@@ -1,0 +1,50 @@
+{
+  "name": "tiny-querystring",
+  "description": "Tiny parsing and formatting URL query strings for Node.js and browser",
+  "version": "0.0.0",
+  "main": "lib/index",
+  "files": [
+    "*.md",
+    "lib"
+  ],
+  "scripts": {
+    "start": "yarn test -- --watchAll",
+    "test": "cross-env NODE_ENV=development jest",
+    "prebuild": "rimraf lib",
+    "build": "babel src -d lib",
+    "preversion": "yarn test && yarn build"
+  },
+  "author": "Cap32",
+  "repository": "Cap32/tiny-querystring",
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.13.2",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.11.6",
+    "cross-env": "^4.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jest": "^19.0.1",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^20.0.4",
+    "rimraf": "^2.5.4"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "modulePathIgnorePatterns": [
+      "node_modules",
+      "lib"
+    ]
+  }
+}

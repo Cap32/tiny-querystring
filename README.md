@@ -1,0 +1,5 @@
+# tiny-querystring
+
+## License
+
+MIT
