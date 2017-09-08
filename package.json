@@ -2,16 +2,21 @@
   "name": "tiny-querystring",
   "description": "Tiny parsing and formatting URL query strings for Node.js and browser",
   "version": "0.0.0",
-  "main": "lib/index",
+  "main": "tiny-querystring.js",
+  "browser": "dist/tiny-querystring.umd.js",
   "files": [
     "*.md",
-    "lib"
+    "dist"
   ],
   "scripts": {
     "start": "yarn test -- --watchAll",
     "test": "cross-env NODE_ENV=development jest",
-    "prebuild": "rimraf lib",
-    "build": "babel src -d lib",
+    "rm": "rimraf dist",
+    "mkdir": "mkdirp dist",
+    "prebuild": "run-s rm mkdir",
+    "build:umd": "babel tiny-querystring.js -o dist/tiny-querystring.umd.js",
+    "build:min": "cross-env NODE_ENV=production babel tiny-querystring.js -o dist/tiny-querystring.min.js",
+    "build": "run-p build:*",
     "preversion": "yarn test && yarn build"
   },
   "author": "Cap32",
@@ -25,6 +30,7 @@
     "babel-eslint": "^7.2.3",
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
     "babel-polyfill": "^6.13.0",
+    "babel-preset-minify": "^0.2.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.11.6",
     "cross-env": "^4.0.0",
@@ -36,6 +42,8 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "jest": "^20.0.4",
+    "mkdirp": "^0.5.1",
+    "npm-run-all": "^4.1.1",
     "rimraf": "^2.5.4"
   },
   "jest": {

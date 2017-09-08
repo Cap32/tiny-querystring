@@ -1,5 +1,5 @@
 
-const qs = require('../src');
+const qs = require('../tiny-querystring');
 
 const parse = qs.parse;
 const stringify = qs.stringify;
