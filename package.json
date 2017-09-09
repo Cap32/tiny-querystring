@@ -11,6 +11,7 @@
   "scripts": {
     "start": "yarn test -- --watchAll",
     "test": "cross-env NODE_ENV=development jest",
+    "gzip": "gzip -c dist/tiny-querystring.min.js | wc -c",
     "rm": "rimraf dist",
     "mkdir": "mkdirp dist",
     "prebuild": "run-s rm mkdir",

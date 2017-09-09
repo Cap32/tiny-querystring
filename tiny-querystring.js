@@ -9,9 +9,9 @@ exports.parse = function parse(str) {
 		.reduce(function (obj, item, index) {
 			var ref = item.split('=');
 			var key = ref[0] || '';
-			var val = ref[1] || '';
+			var val = decodeURIComponent(ref[1] || '');
 			var prev = obj[key];
-			obj[key] = typeof prev === 'undefined' ? val : [].concat(prev, val);
+			obj[key] = prev === undefined ? val : [].concat(prev, val);
 			return obj;
 		}, {})
 	;

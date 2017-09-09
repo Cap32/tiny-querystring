@@ -44,6 +44,10 @@ describe('parse', () => {
 	test('a=b&=&e=f&a=c&a+=d+dd', () => {
 		expect(parse('a=b&=&e=f&a=c&a+=d+dd')).toEqual({ a: ['b', 'c'], 'a ': 'd dd', e: 'f', '': '' });
 	});
+
+	test('url=http%3A%2F%2Fcap32.com%2Fquery%3Fa%3D2%26b%3D1', () => {
+		expect(parse('url=http%3A%2F%2Fcap32.com%2Fquery%3Fa%3D2%26b%3D1')).toEqual({ url: 'http://cap32.com/query?a=2&b=1' });
+	});
 });
 
 describe('stringify', () => {
