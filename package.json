@@ -1,7 +1,7 @@
 {
   "name": "tiny-querystring",
   "description": "Tiny parsing and formatting URL query strings for Node.js and browser",
-  "version": "0.0.0",
+  "version": "0.0.0-0",
   "main": "dist/tiny-querystring.js",
   "module": "tiny-querystring.js",
   "jsnext:main": "tiny-querystring.js",
@@ -24,7 +24,17 @@
   },
   "author": "Cap32",
   "repository": "Cap32/tiny-querystring",
-  "keywords": [],
+  "keywords": [
+    "querystring",
+    "qs",
+    "query",
+    "stringify",
+    "parse",
+    "nodejs",
+    "browser",
+    "tiny",
+    "mini"
+  ],
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
