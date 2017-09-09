@@ -45,6 +45,10 @@ describe('parse', () => {
 	test('url=http%3A%2F%2Fcap32.com%2Fquery%3Fa%3D2%26b%3D1', () => {
 		expect(parse('url=http%3A%2F%2Fcap32.com%2Fquery%3Fa%3D2%26b%3D1')).toEqual({ url: 'http://cap32.com/query?a=2&b=1' });
 	});
+
+	test('foo=bar&abc=xyz&abc=123', () => {
+		expect(parse('foo=bar&abc=xyz&abc=123')).toEqual({ foo: 'bar', abc: ['xyz', '123'] });
+	});
 });
 
 describe('stringify', () => {
@@ -78,5 +82,9 @@ describe('stringify', () => {
 
 	test("{ a: ['b', 'c'], 'a ': 'd dd', '': '', e: 'f' }", () => {
 		expect(stringify({ a: ['b', 'c'], 'a ': 'd dd', '': '', e: 'f' })).toBe('a=b&a=c&a+=d+dd&=&e=f');
+	});
+
+	test("{ foo: 'bar', baz: ['qux', 'quux'], corge: '' }", () => {
+		expect(stringify({ foo: 'bar', baz: ['qux', 'quux'], corge: '' })).toBe('foo=bar&baz=qux&baz=quux&corge=');
 	});
 });
