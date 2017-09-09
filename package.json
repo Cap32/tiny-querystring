@@ -11,7 +11,8 @@
   ],
   "scripts": {
     "start": "yarn test -- --watch",
-    "test": "cross-env NODE_ENV=development jest",
+    "test": "cross-env NODE_ENV=development jest --coverage",
+    "coverage": "cat ./coverage/lcov.info | coveralls",
     "gzip": "gzip -c dist/tiny-querystring.min.js | wc -c",
     "rm": "rimraf dist es lib",
     "mkdir": "mkdirp dist",
@@ -46,6 +47,7 @@
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
     "babel-preset-minify": "^0.2.0",
     "babel-preset-stage-0": "^6.5.0",
+    "coveralls": "^2.13.1",
     "cross-env": "^4.0.0",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
@@ -61,11 +63,10 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.js"
+      "tiny-querystring.js"
     ],
     "modulePathIgnorePatterns": [
-      "node_modules",
-      "lib"
+      "node_modules"
     ]
   }
 }

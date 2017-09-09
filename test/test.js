@@ -52,6 +52,10 @@ describe('parse', () => {
 });
 
 describe('stringify', () => {
+	test('without argument', () => {
+		expect(stringify()).toBe('');
+	});
+
 	test("{ a: 'b' }", () => {
 		expect(stringify({ a: 'b' })).toBe('a=b');
 	});
