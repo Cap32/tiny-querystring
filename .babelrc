@@ -1,10 +1,20 @@
 {
 	"plugins": [
-		["transform-es2015-modules-umd", {}],
+		["transform-es2015-modules-commonjs", { "loose": true }],
 	],
 	"env": {
-		"production": {
+		"umd": {
+			"plugins": [
+				["transform-es2015-modules-commonjs", { "loose": true }],
+				"transform-es2015-modules-umd",
+			],
+		},
+		"min": {
 			"presets": ["minify"],
+			"plugins": [
+				["transform-es2015-modules-commonjs", { "loose": true }],
+				"transform-es2015-modules-umd",
+			],
 		},
 	},
 }

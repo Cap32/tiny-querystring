@@ -1,8 +1,5 @@
 
-const qs = require('../tiny-querystring');
-
-const parse = qs.parse;
-const stringify = qs.stringify;
+import { parse, stringify } from '../tiny-querystring';
 
 describe('parse', () => {
 	test('a=b', () => {

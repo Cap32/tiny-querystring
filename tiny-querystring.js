@@ -1,5 +1,5 @@
 
-exports.parse = function parse(str) {
+export function parse(str) {
 	return (str + '')
 		.replace(/\+/g, ' ')
 		.split('&')
@@ -17,7 +17,7 @@ exports.parse = function parse(str) {
 	;
 };
 
-exports.stringify = function stringify(obj) {
+export function stringify(obj) {
 	return Object.keys(obj || {})
 		.reduce(function (arr, key) {
 			var val = obj[key];
