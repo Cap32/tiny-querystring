@@ -19,9 +19,10 @@
     "mkdir": "mkdirp dist",
     "prebuild": "run-s rm mkdir",
     "build:cmd": "babel tiny-querystring.js -o dist/tiny-querystring.js",
+    "build:cmd:min": "cross-env BABEL_ENV=cmdmin babel tiny-querystring.js -o dist/tiny-querystring.min.js",
     "build:umd": "cross-env BABEL_ENV=umd babel tiny-querystring.js -o dist/tiny-querystring.umd.js",
-    "build:min": "cross-env BABEL_ENV=min babel tiny-querystring.js -o dist/tiny-querystring.min.js",
-    "build": "run-p build:*",
+    "build:umd:min": "cross-env BABEL_ENV=umdmin babel tiny-querystring.js -o dist/tiny-querystring.umd.min.js",
+    "build": "run-p build:**:*",
     "preversion": "yarn test && yarn build"
   },
   "author": "Cap32",

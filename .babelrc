@@ -9,11 +9,17 @@
 				"transform-es2015-modules-umd",
 			],
 		},
-		"min": {
+		"umdmin": {
 			"presets": ["minify"],
 			"plugins": [
 				["transform-es2015-modules-commonjs", { "loose": true }],
 				"transform-es2015-modules-umd",
+			],
+		},
+		"cmdmin": {
+			"presets": ["minify"],
+			"plugins": [
+				["transform-es2015-modules-commonjs", { "loose": true }],
 			],
 		},
 	},
