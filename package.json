@@ -1,7 +1,7 @@
 {
   "name": "tiny-querystring",
   "description": "Tiny parsing and formatting URL query strings for Node.js and browser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/tiny-querystring.js",
   "module": "tiny-querystring.js",
   "jsnext:main": "tiny-querystring.js",
