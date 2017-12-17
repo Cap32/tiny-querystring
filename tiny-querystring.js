@@ -1,15 +1,14 @@
 
 export function parse(str) {
+	var decode = decodeURIComponent;
 	return (str + '')
 		.replace(/\+/g, ' ')
 		.split('&')
-		.filter(function (item) {
-			return !/^\s*$/.test(item);
-		})
+		.filter(Boolean)
 		.reduce(function (obj, item, index) {
 			var ref = item.split('=');
-			var key = ref[0] || '';
-			var val = decodeURIComponent(ref[1] || '');
+			var key = decode(ref[0] || '');
+			var val = decode(ref[1] || '');
 			var prev = obj[key];
 			obj[key] = prev === undefined ? val : [].concat(prev, val);
 			return obj;
@@ -18,11 +17,12 @@ export function parse(str) {
 };
 
 export function stringify(obj) {
+	var encode = encodeURIComponent;
 	return Object.keys(obj || {})
 		.reduce(function (arr, key) {
-			var val = obj[key];
-			if (val instanceof Array) { val = val.join('&' + key + '='); }
-			arr.push(key + '=' + val);
+			[].concat(obj[key]).forEach(function (v) {
+				arr.push(encode(key) + '=' + encode(v));
+			});
 			return arr;
 		}, [])
 		.join('&')
