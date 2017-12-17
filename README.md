@@ -53,6 +53,10 @@ stringify({ foo: 'bar', baz: ['qux', 'quux'], corge: '' });
 /* returns 'foo=bar&baz=qux&baz=quux&corge=' */
 ```
 
+## Contributing
+
+[Contributing](/CONTRIBUTING.md)
+
 
 ## License
 
