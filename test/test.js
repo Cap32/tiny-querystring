@@ -32,7 +32,7 @@ describe('parse', () => {
 	});
 
 	test('a=b&&e=f&a=c&a+=d+dd', () => {
-		expect(parse('a=b&&e=f&a=c&a+=d+dd')).toEqual(qs.parse('a=b&&e=f&a=c&a+=d+dd'));
+		expect(parse('a=b&&e=f&a=c&a+=d+dd')).toEqual({ a: ['b', 'c'], 'a ': 'd dd', e: 'f' });
 	});
 
 	test('a=b& &e=f&a=c&a+=d+dd', () => {
