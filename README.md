@@ -55,7 +55,7 @@ stringify({ foo: 'bar', baz: ['qux', 'quux'], corge: '' });
 
 ## Contributing
 
-[Contributing](/CONTRIBUTING.md)
+Contributions welcome! See the [Contributing Guide](/CONTRIBUTING.md)
 
 
 ## License
